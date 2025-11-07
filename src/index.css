@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 220 15% 8%;
+    --foreground: 210 40% 98%;
+
+    --card: 220 15% 10%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 220 15% 10%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 195 100% 55%;
+    --primary-foreground: 220 15% 8%;
+
+    --secondary: 220 15% 15%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 220 15% 15%;
+    --muted-foreground: 217 10% 64%;
+
+    --accent: 195 100% 55%;
+    --accent-foreground: 220 15% 8%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 15% 18%;
+    --input: 220 15% 18%;
+    --ring: 195 100% 55%;
+
+    --radius: 0.5rem;
+
+    --code-bg: 220 15% 12%;
+    --code-accent: 195 100% 55%;
+    --success: 142 76% 36%;
+    --warning: 48 96% 53%;
+    
+    --gradient-primary: linear-gradient(135deg, hsl(195 100% 55%), hsl(210 100% 60%));
+    --shadow-glow: 0 0 30px hsla(195, 100%, 55%, 0.3);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  
+  code, pre {
+    @apply font-mono;
+  }
+}
+
+@layer utilities {
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+  
+  @keyframes glow {
+    from {
+      box-shadow: 0 0 10px hsla(195, 100%, 55%, 0.2);
+    }
+    to {
+      box-shadow: 0 0 20px hsla(195, 100%, 55%, 0.4);
+    }
+  }
+  
+  .animate-in {
+    animation: fadeIn 0.5s ease-out;
+  }
+  
+  .slide-in-from-left {
+    animation: slideInLeft 0.6s ease-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}
